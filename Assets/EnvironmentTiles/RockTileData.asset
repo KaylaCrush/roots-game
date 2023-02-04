@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RockTileData
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: 236965bad5473b24ca0827cf71bd707d, type: 2}
+  - {fileID: 11400000, guid: 05f94351e3b21804695ea81536d5006b, type: 2}
   NutrientGatherSpeed: 0
   Toughness: 5
