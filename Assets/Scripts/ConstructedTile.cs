@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu]
-public class TileData : ScriptableObject
+public class ConstructedTile : ScriptableObject
 {
     public TileBase[] tiles;
 
@@ -12,6 +12,7 @@ public class TileData : ScriptableObject
     {
         Split,
         Turn,
+        Stop,
     }
 
 
