@@ -12,4 +12,3 @@ public class TileData : ScriptableObject
     public float NutrientGatherSpeed, Toughness;
 
 }
- 
