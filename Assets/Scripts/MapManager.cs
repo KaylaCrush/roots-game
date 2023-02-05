@@ -9,6 +9,7 @@ public class MapManager : MonoBehaviour
     private Tilemap map;
     public Tilemap fogOfWar;
     public TileBase transparent;
+    public TileBase fog;
 
     [SerializeField]
     private List<TileData> tileDatas;
@@ -17,6 +18,8 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
+      //  fogOfWar.BoxFill()
+
         dataFromTiles = new Dictionary<TileBase, TileData>();
 
         foreach (var tileData in tileDatas)
@@ -72,7 +75,7 @@ public class MapManager : MonoBehaviour
     public void RevealTiles(Vector3Int location)
     {
         print(location);
-        fogOfWar.SetTile(location, transparent);
+        fogOfWar.SetTile(location - new Vector3Int(0,0,1), transparent);
     //    fogOfWar.BoxFill(location, transparent, location.x - 2, location.y - 2, location.x + 2, location.y + 2);
     }
 }

@@ -7456,6 +7456,7 @@ MonoBehaviour:
   map: {fileID: 1565591002}
   fogOfWar: {fileID: 587352152}
   transparent: {fileID: 11400000, guid: c9da51f64233a804abe649a5174b6d13, type: 2}
+  fog: {fileID: 11400000, guid: 3c27e5b1702ec0c44ab78ce526fce647, type: 2}
   tileDatas:
   - {fileID: 11400000, guid: 430a835841664cd4489a06216f5c36b6, type: 2}
   - {fileID: 11400000, guid: 759c747731378914eb542319188b82a8, type: 2}
