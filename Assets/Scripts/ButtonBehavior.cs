@@ -14,24 +14,6 @@ public class ButtonBehavior : MonoBehaviour
     [SerializeField]
     private Tilemap treeMap;
 
-    [SerializeField]
-    private List<TileData> tileDatas;
-
-    private Dictionary<TileBase, TileData> dataFromTiles;
-
-    private void Awake()
-    {
-        dataFromTiles = new Dictionary<TileBase, TileData>();
-
-        foreach (var tileData in tileDatas)
-        {
-            foreach (var tile in tileData.tiles)
-            {
-                dataFromTiles.Add(tile, tileData);
-            }
-        }
-    }
-
     void Update(){
 
         if(Input.GetMouseButtonDown(1)){
@@ -40,10 +22,6 @@ public class ButtonBehavior : MonoBehaviour
         if(Input.GetKeyDown("1")){
             PressSplit();
         }
-    }
-
-    private void LateUpdate(){
-
     }
 
     public void PressSplit(){
