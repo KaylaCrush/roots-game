@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -12,7 +13,7 @@ public class TreeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,7 +25,10 @@ public class TreeManager : MonoBehaviour
 
         var powerPerNode = powerPerUpdate / nodes.Count;
 
-        foreach(NodeManager node in nodes)
+        NodeManager[] nodesForPower = new NodeManager[nodes.Count];
+        nodes.CopyTo(nodesForPower);
+
+        foreach (NodeManager node in nodesForPower)
         {
             node.AddPower(powerPerNode);
         }

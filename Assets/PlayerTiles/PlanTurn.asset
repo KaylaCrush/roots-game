@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e112526a1387c41adf56ac6c302f19, type: 3}
   m_Name: PlanTurn
   m_EditorClassIdentifier: 
-  tiles: []
+  tiles:
+  - {fileID: 11400000, guid: 4dacb2b0b6937184380277628979fb35, type: 2}
   instructionType: 1

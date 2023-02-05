@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class BuildingManager : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap map;
+    public Tilemap map;
 
     [SerializeField]
     private List<BuildingTile> tileDatas;

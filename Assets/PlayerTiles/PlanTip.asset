@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: PlanTip
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 417333bfbe6c7884c975772938504879, type: 2}
+  - {fileID: 11400000, guid: 31a15a331001daa46beecfeef0752cfd, type: 2}
+  - {fileID: 11400000, guid: 30a3b0cf8f7d55b4eb4c1192350a29cd, type: 2}
   instructionType: 2

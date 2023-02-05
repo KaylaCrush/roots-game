@@ -47,16 +47,9 @@ public class NodeManager : MonoBehaviour
     public GameObject nodePrefab;
     public TreeManager parentTree;
 
-    public TileBase StraightEW;
-    public TileBase StraightNS;
-    public TileBase CornerNW;
-    public TileBase CornerNE;
-    public TileBase CornerSW;
-    public TileBase CornerSE;
-    public TileBase BranchNEW;
-    public TileBase BranchNES;
-    public TileBase BranchNWS;
-    public TileBase BranchSEW;
+    public TileBase Straight;
+    public TileBase Corner;
+    public TileBase Branch;
 
     // Start is called before the first frame update
     void Start()
@@ -66,14 +59,6 @@ public class NodeManager : MonoBehaviour
         parentTree = transform.parent.GetComponent<TreeManager>();
 
         toughness = mapManager.GetTileToughness(new Vector2(this.transform.position.x, this.transform.position.y));
-
-        //TODO fill in mapmanager, tilemaps on instantiate
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void TurnLeft()
@@ -86,8 +71,23 @@ public class NodeManager : MonoBehaviour
         nodeDirection = clockwiseTurns[nodeDirection];
     }
 
+    void SetCurrentTreeTile(TileBase tileType)
+    {
+        myTree.SetTile(Vector3Int.FloorToInt(transform.position), tileType);
+    }
+    void ClearCurrentBuildingTile()
+    {
+        buildingManager.map.DeleteCells(Vector3Int.FloorToInt(transform.position), Vector3Int.one);
+    }
+
     public void AddPower(float inputPower)
     {
+        var instruction = buildingManager.GetTileInstruction(transform.position);
+        if (instruction == BuildingTile.Instruction.Stop)
+        {
+            return;
+        }
+
         power = power + inputPower;
         if (power > toughness)
         {
@@ -96,11 +96,6 @@ public class NodeManager : MonoBehaviour
             // Power reduced by toughness cost
             power = power - toughness;
 
-
-            myTree.SetTile(Vector3Int.FloorToInt(transform.position), StraightEW);
-
-            var instruction = buildingManager.GetTileInstruction(transform.position);
-            print(instruction);
             switch (instruction)
             {
                 case BuildingTile.Instruction.Split:
@@ -108,15 +103,22 @@ public class NodeManager : MonoBehaviour
                     var newNode = GameObject.Instantiate(nodePrefab, transform.position + directionVectors[newNodeDirection], transform.rotation).GetComponent<NodeManager>();
                     newNode.nodeDirection = newNodeDirection;
                     newNode.myTree = myTree;
+                    newNode.transform.SetParent(parentTree.transform);
                     parentTree.nodes.Add(newNode);
                     TurnRight();
+                    SetCurrentTreeTile(Branch);
+                    ClearCurrentBuildingTile();
                     break;
-                case BuildingTile.Instruction.Stop:
                 case BuildingTile.Instruction.Turn:
                     TurnRight();
+                    ClearCurrentBuildingTile();
                     break;
                 case BuildingTile.Instruction.NONE:
+                    SetCurrentTreeTile(Straight);
+                    break;
+                case BuildingTile.Instruction.Stop:
                 default:
+                    ClearCurrentBuildingTile();
                     break;
             }
 
