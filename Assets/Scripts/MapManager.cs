@@ -15,6 +15,7 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
+        RenderMap();
         dataFromTiles = new Dictionary<TileBase, TileData>();
 
         foreach (var tileData in tileDatas)
@@ -22,6 +23,15 @@ public class MapManager : MonoBehaviour
             foreach (var tile in tileData.tiles)
             {
                 dataFromTiles.Add(tile, tileData);
+            }
+        }
+    }
+
+    public static void RenderMap(){
+        map.ClearAllTiles();
+        for(int x = 0; x<map.GetUpperBound(0); x++){
+            for (int y = 0; y < map.GetUpperBound(1);y++){
+                tilemap.SetTile();
             }
         }
     }
@@ -66,5 +76,4 @@ public class MapManager : MonoBehaviour
         float NutrientGatherSpeed = dataFromTiles[tile].NutrientGatherSpeed;
         return NutrientGatherSpeed;
     }
-
 }
