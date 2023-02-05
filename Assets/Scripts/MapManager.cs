@@ -22,7 +22,7 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-      //  fogOfWar.BoxFill()
+    //    fogOfWar.BoxFill(new Vector3Int(0, 0, 0), fog, -100, -100, 100, 100); // TODO HARD CODED!
 
         dataFromTiles = new Dictionary<TileBase, TileData>();
 
@@ -90,8 +90,10 @@ public class MapManager : MonoBehaviour
 
     public void RevealTiles(Vector3Int location)
     {
-        print(location);
-        fogOfWar.SetTile(location - new Vector3Int(0,0,1), transparent);
+    //    print(location);
+    //    print(fogOfWar.GetTile(location).ToString());
+    //    fogOfWar.SetTile(location - new Vector3Int(0,0,1), transparent);
     //    fogOfWar.BoxFill(location, transparent, location.x - 2, location.y - 2, location.x + 2, location.y + 2);
+     //   fogOfWar.RefreshTile(location);
     }
 }
