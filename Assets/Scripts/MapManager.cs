@@ -22,9 +22,24 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-    //    fogOfWar.BoxFill(new Vector3Int(0, 0, 0), fog, -100, -100, 100, 100); // TODO HARD CODED!
+        // Cover map with fog of war
+        TileBase[] tileArray = new TileBase[area.size.x * area.size.y * area.size.z];
+        for (int index = 0; index < tileArray.Length; index++)
+        {
+            tileArray[index] = fog;
+        }
+        fogOfWar.SetTilesBlock(area, tileArray);
 
-        dataFromTiles = new Dictionary<TileBase, TileData>();
+        for (int i = -5; i < 5; i++)
+        {
+            for (int j = -5; j < 5; j++)
+            {
+                fogOfWar.SetTile(new Vector3Int(i, j, 0), null);
+            }
+        }
+
+
+    dataFromTiles = new Dictionary<TileBase, TileData>();
 
         foreach (var tileData in tileDatas)
         {
@@ -90,10 +105,12 @@ public class MapManager : MonoBehaviour
 
     public void RevealTiles(Vector3Int location)
     {
-    //    print(location);
-    //    print(fogOfWar.GetTile(location).ToString());
-    //    fogOfWar.SetTile(location - new Vector3Int(0,0,1), transparent);
-    //    fogOfWar.BoxFill(location, transparent, location.x - 2, location.y - 2, location.x + 2, location.y + 2);
-     //   fogOfWar.RefreshTile(location);
-    }
+     for (int i = -2; i <3; i++)
+        {
+            for (int j = -2; j < 3; j++)
+            {
+                fogOfWar.SetTile(location + new Vector3Int(i, j, 1), null);
+            }
+        }
+     }
 }
