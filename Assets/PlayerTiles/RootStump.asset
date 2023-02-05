@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 896ad367f83229b4a8da5ec039220ea7, type: 3}
-  m_Name: Stump
+  m_Name: RootStump
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 21300000, guid: 22b80f78f7d67c449824c920d56f8a49, type: 3}
   m_DefaultGameObject: {fileID: 0}

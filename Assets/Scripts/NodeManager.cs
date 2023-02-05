@@ -41,8 +41,6 @@ public class NodeManager : MonoBehaviour
     public MapManager mapManager;
     public BuildingManager buildingManager;
     public Tilemap myTree;
-    public Tilemap Environment;
-    public Tilemap Buildings;
 
     public GameObject nodePrefab;
     public TreeManager parentTree;
@@ -59,7 +57,25 @@ public class NodeManager : MonoBehaviour
         parentTree = transform.parent.GetComponent<TreeManager>();
 
         toughness = mapManager.GetTileToughness(new Vector2(this.transform.position.x, this.transform.position.y));
+        RotateTransformToDirection();
     }
+
+    void Update()
+    {
+        RotateTransformToDirection();
+    }
+
+    void RotateTransformToDirection()
+    {
+        transform.rotation = Quaternion.Euler(eulerRotations[nodeDirection]);
+    }
+    private Dictionary<Direction, Vector3> eulerRotations = new Dictionary<Direction, Vector3>
+        {
+            { Direction.East , new Vector3(0, 0, 180) },
+            { Direction.West , new Vector3(0, 0, 0) },
+            { Direction.South , new Vector3(0, 0, 270) },
+            { Direction.North , new Vector3(0, 0, 90) },
+        };
 
     void TurnLeft()
     {
@@ -100,9 +116,12 @@ public class NodeManager : MonoBehaviour
             {
                 case BuildingTile.Instruction.Split:
                     var newNodeDirection = ccwTurns[nodeDirection];
-                    var newNode = GameObject.Instantiate(nodePrefab, transform.position + directionVectors[newNodeDirection], transform.rotation).GetComponent<NodeManager>();
+                    Debug.Log("New Node Direction");
+                    Debug.Log(newNodeDirection);
+                    var newNode = GameObject.Instantiate(nodePrefab, transform.position + directionVectors[newNodeDirection], Quaternion.Euler(eulerRotations[newNodeDirection])).GetComponent<NodeManager>();
                     newNode.nodeDirection = newNodeDirection;
                     newNode.myTree = myTree;
+                    newNode.parentTree = parentTree;
                     newNode.transform.SetParent(parentTree.transform);
                     parentTree.nodes.Add(newNode);
                     TurnRight();

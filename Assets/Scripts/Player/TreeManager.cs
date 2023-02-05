@@ -17,7 +17,7 @@ public class TreeManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var totalPower = 4; // TEMP TODO: detect how much nutrient power the roots cover
 
