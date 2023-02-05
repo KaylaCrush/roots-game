@@ -1222,7 +1222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f57156bcf9c8d428138eb4ff3eced7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodes: 010000000200000003000000
+  nodes:
+  - {fileID: 986617355}
   gameBounds:
     m_Position: {x: -100, y: -100, z: -1}
     m_Size: {x: 100, y: 100, z: 10}
@@ -1347,6 +1348,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &986617355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 674271336169143907, guid: e6d74b5cbedc6424e90fd3576c8929d7, type: 3}
+  m_PrefabInstance: {fileID: 674271335632669855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227bce28daf1a734cbee94bbd2193410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1443613518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1470,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1443613520}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -5152,6 +5164,10 @@ PrefabInstance:
       propertyPath: Buildings
       value: 
       objectReference: {fileID: 950703676}
+    - target: {fileID: 674271336169143907, guid: e6d74b5cbedc6424e90fd3576c8929d7, type: 3}
+      propertyPath: StraightEW
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ca06bff3d9f05245812349fc4c2d5fb, type: 2}
     - target: {fileID: 674271336169143907, guid: e6d74b5cbedc6424e90fd3576c8929d7, type: 3}
       propertyPath: mapManager
       value: 
