@@ -6,13 +6,17 @@ using UnityEngine.Tilemaps;
 public class MapManager : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap map;
+    private Tilemap tilemap;
+
     public Tilemap fogOfWar;
     public TileBase transparent;
     public TileBase fog;
 
     [SerializeField]
     private List<TileData> tileDatas;
+
+    public BoundsInt area;
+
 
     private Dictionary<TileBase, TileData> dataFromTiles;
 
@@ -29,18 +33,30 @@ public class MapManager : MonoBehaviour
                 dataFromTiles.Add(tile, tileData);
             }
         }
+
+        GenerateMap();
     }
 
+    public void GenerateMap(){
+        tilemap.ClearAllTiles();
+        TileBase tileA = tileDatas[0].tiles[0];
+        TileBase tileB = tileDatas[1].tiles[0];
+        TileBase[] tileArray = new TileBase[area.size.x * area.size.y * area.size.z];
+        for (int index = 0; index < tileArray.Length; index++){
+            tileArray[index] = index % 2 == 0 ? tileA : tileB;
+        }
+        tilemap.SetTilesBlock(area, tileArray);
+    }
 
     private void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int gridPosition = map.WorldToCell(mousePosition);
+        Vector3Int gridPosition = tilemap.WorldToCell(mousePosition);
 
 
         if (Input.GetMouseButton(0))
         {
-            TileBase clickedTile = map.GetTile(gridPosition);
+            TileBase clickedTile = tilemap.GetTile(gridPosition);
 
             float Toughness = dataFromTiles[clickedTile].Toughness;
 
@@ -50,8 +66,8 @@ public class MapManager : MonoBehaviour
 
     public float GetTileToughness(Vector2 worldPosition)
     {
-        Vector3Int gridPosition = map.WorldToCell(worldPosition);
-        TileBase tile = map.GetTile(gridPosition);
+        Vector3Int gridPosition = tilemap.WorldToCell(worldPosition);
+        TileBase tile = tilemap.GetTile(gridPosition);
 
         if (tile == null)
             return 1f;
@@ -62,8 +78,8 @@ public class MapManager : MonoBehaviour
 
     public float GetTileNutrientGatherSpeed(Vector2 worldPosition)
     {
-        Vector3Int gridPosition = map.WorldToCell(worldPosition);
-        TileBase tile = map.GetTile(gridPosition);
+        Vector3Int gridPosition = tilemap.WorldToCell(worldPosition);
+        TileBase tile = tilemap.GetTile(gridPosition);
 
         if (tile == null)
             return 1f;
