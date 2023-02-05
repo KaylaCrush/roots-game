@@ -847,7 +847,7 @@ MonoBehaviour:
   Cam: {fileID: 420135426}
   verticalScrollArea: 10
   horizontalScrollArea: 10
-  verticalScrollSpeed: 100
+  verticalScrollSpeed: 150
   horizontalScrollSpeed: 10
   ZoomEnabled: 1
   MoveEnabled: 1
