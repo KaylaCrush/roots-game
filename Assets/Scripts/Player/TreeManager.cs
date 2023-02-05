@@ -11,6 +11,7 @@ public class TreeManager : MonoBehaviour
     public Tilemap myTree;
 
     public float TotalNutrients = 4;
+    public float totalPower;
 
     public bool PauseState;
 
@@ -39,7 +40,7 @@ public class TreeManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float totalPower = (float)Math.Sqrt(TotalNutrients); // TEMP TODO: detect how much nutrient power the roots cover
+        totalPower = (float)Math.Sqrt(TotalNutrients); // TEMP TODO: detect how much nutrient power the roots cover
 
         var powerPerUpdate = totalPower * Time.deltaTime;
 
