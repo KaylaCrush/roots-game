@@ -13,6 +13,19 @@ public class BuildingManager : MonoBehaviour
 
     private Dictionary<TileBase, BuildingTile> dataFromTiles;
 
+    private void Awake()
+    {
+        dataFromTiles = new Dictionary<TileBase, BuildingTile>();
+
+        foreach (var tileData in tileDatas)
+        {
+            foreach (var tile in tileData.tiles)
+            {
+                dataFromTiles.Add(tile, tileData);
+            }
+        }
+    }
+
     public BuildingTile.Instruction GetTileInstruction(Vector2 worldPosition)
     {
         Vector3Int gridPosition = map.WorldToCell(worldPosition);

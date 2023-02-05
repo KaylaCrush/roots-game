@@ -97,12 +97,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227bce28daf1a734cbee94bbd2193410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nodeDirection: 0
   power: 0
   toughness: 0
   mapManager: {fileID: 0}
+  buildingManager: {fileID: 0}
   myTree: {fileID: 0}
   Environment: {fileID: 0}
   Buildings: {fileID: 0}
+  nodePrefab: {fileID: 674271336169143911}
+  parentTree: {fileID: 0}
   StraightEW: {fileID: 11400000, guid: 3ca06bff3d9f05245812349fc4c2d5fb, type: 2}
   StraightNS: {fileID: 11400000, guid: 750a7fa578e22344d9566eb4ea9823b6, type: 2}
   CornerNW: {fileID: 11400000, guid: b29350948750fb5439cbb8646924a28e, type: 2}
