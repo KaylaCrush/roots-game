@@ -23,11 +23,13 @@ public class MapManager : MonoBehaviour
 
     private float weight = .5f;
     private float seed = 420.69f;
+    private float zoom_factor = .24f;
 
     private void Awake()
     {
         // Cover map with fog of war
-        TileBase[] tileArray = new TileBase[area.size.x * area.size.y * area.size.z];
+        TileBase[] tileArray = new TileBase[area.size.x * area.size.y];
+
         for (int index = 0; index < tileArray.Length; index++)
         {
             tileArray[index] = fog;
@@ -41,7 +43,6 @@ public class MapManager : MonoBehaviour
                 fogOfWar.SetTile(new Vector3Int(i, j, 0), null);
             }
         }
-
 
         dataFromTiles = new Dictionary<TileBase, TileData>();
 
@@ -60,29 +61,27 @@ public class MapManager : MonoBehaviour
     //filled with random values between 0 and len(tileDatas)(-1)
     public void GenerateMap(){
 
-        TileBase[] tileArray = new TileBase[area.size.x * area.size.y];
+        TileBase[] mapArray = new TileBase[area.size.x * area.size.y];
 
         tilemap.ClearAllTiles();
-        SetDefaultTile(tileArray);
-        SetOtherTiles(tileArray);
-        tilemap.SetTilesBlock(area, tileArray);
+        SetDefaultTile(mapArray);
+        SetOtherTiles(mapArray);
+        tilemap.SetTilesBlock(area, mapArray);
     }
 
-    private void SetDefaultTile(TileBase[] tileArray){
+    private void SetDefaultTile(TileBase[] mapArray){
         for(int i = 0; i < area.size.x*area.size.y; i++){
-            tileArray[i]=tileDatas[0].tiles[0];
+            mapArray[i]=tileDatas[0].tiles[0];
         }
     }
 
-    private void SetOtherTiles(TileBase[] tileArray){
-        for(int i = 0; i < tileDatas.Count; i++){
-            TileBase tile = tileDatas[i].tiles[0];
-            int index = 0;
+    private void SetOtherTiles(TileBase[] mapArray){
+        int index=0;
+        foreach(TileData tiledata in tileDatas){
             for(int j = 0; j < area.size.x; j++){
-                for(int k = 0; k <area.size.y; k++){
-                    if(Mathf.PerlinNoise(j+seed, k+seed) > weight){
-                        tileArray[index] = tile;
-                    }
+                for(int k = 0; k < area.size.y; k++){
+                    Debug.Log(index);
+                    if(Mathf.PerlinNoise(j*zoom_factor+seed, k*zoom_factor+seed) > weight){mapArray[index] = tiledata.tiles[0];}
                     index++;
                 }
             }
