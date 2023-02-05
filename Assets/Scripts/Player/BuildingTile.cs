@@ -8,14 +8,14 @@ public class BuildingTile : ScriptableObject
 {
     public TileBase[] tiles;
 
-    enum Instruction
+    public enum Instruction
     {
         Split,
         Turn,
         Stop,
+        NONE,
     }
 
-
-    public float NutrientGatherSpeed, Toughness;
+    public Instruction instructionType = Instruction.NONE;
 
 }
