@@ -71,8 +71,8 @@ public class NodeManager : MonoBehaviour
     }
     private Dictionary<Direction, Vector3> eulerRotations = new Dictionary<Direction, Vector3>
         {
-            { Direction.East , new Vector3(0, 0, 180) },
-            { Direction.West , new Vector3(0, 0, 0) },
+            { Direction.East , new Vector3(0, 0, 0) },
+            { Direction.West , new Vector3(0, 0, 180) },
             { Direction.South , new Vector3(0, 0, 270) },
             { Direction.North , new Vector3(0, 0, 90) },
         };

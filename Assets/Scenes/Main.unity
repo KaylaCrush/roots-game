@@ -7022,7 +7022,7 @@ PrefabInstance:
       objectReference: {fileID: 1989085341}
     - target: {fileID: 674271336169143908, guid: e6d74b5cbedc6424e90fd3576c8929d7, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 674271336169143908, guid: e6d74b5cbedc6424e90fd3576c8929d7, type: 3}
       propertyPath: m_Sprite
