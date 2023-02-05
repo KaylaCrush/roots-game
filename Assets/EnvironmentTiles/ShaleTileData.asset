@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles: []
   NutrientGatherSpeed: 0
-  Toughness: 0
+  Toughness: 3

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RichSoilTileData
   m_EditorClassIdentifier: 
   tiles: []
-  NutrientGatherSpeed: 0
-  Toughness: 0
+  NutrientGatherSpeed: 3
+  Toughness: 1
