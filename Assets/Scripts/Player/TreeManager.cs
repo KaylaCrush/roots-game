@@ -10,11 +10,29 @@ public class TreeManager : MonoBehaviour
     public BoundsInt gameBounds;
     public Tilemap myTree;
 
+    public bool PauseState = true;
+
     // Start is called before the first frame update
     void Start()
     {
 
     }
+
+    void Update()
+    {
+        // Pausing the game
+        if(Input.GetKeyDown("space"))
+        {
+            if(PauseState)
+            {
+                PauseState = false;
+            } else
+            {
+                PauseState = true;
+            }
+        }
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -28,9 +46,12 @@ public class TreeManager : MonoBehaviour
         NodeManager[] nodesForPower = new NodeManager[nodes.Count];
         nodes.CopyTo(nodesForPower);
 
-        foreach (NodeManager node in nodesForPower)
+        if (!PauseState)
         {
-            node.AddPower(powerPerNode);
+            foreach (NodeManager node in nodesForPower)
+            {
+                node.AddPower(powerPerNode);
+            }
         }
 
     }
