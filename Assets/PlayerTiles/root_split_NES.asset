@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: root_split_NES
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 0f01e93c7f8e8b547897d5f1e4bc9241, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8414a6d0fe428b842a7a3b3b508a0cfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
