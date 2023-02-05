@@ -47,7 +47,7 @@ public class MapManager : MonoBehaviour
     {
         Vector3Int gridPosition = map.WorldToCell(worldPosition);
         TileBase tile = map.GetTile(gridPosition);
-        
+
         if (tile == null)
             return 1f;
 
