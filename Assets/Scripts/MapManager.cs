@@ -17,8 +17,10 @@ public class MapManager : MonoBehaviour
 
     public BoundsInt area;
 
-
     private Dictionary<TileBase, TileData> dataFromTiles;
+
+    private float weight = .5f;
+    private float seed = 420.69f;
 
     private void Awake()
     {
@@ -52,17 +54,37 @@ public class MapManager : MonoBehaviour
         GenerateMap();
     }
 
-    public void GenerateMap()
-    {
+    //creates a 2d array corresponding to the tilemap
+    //filled with random values between 0 and len(tileDatas)(-1)
+    public void GenerateMap(){
+
+        TileBase[] tileArray = new TileBase[area.size.x * area.size.y];
+
         tilemap.ClearAllTiles();
-        TileBase tileA = tileDatas[0].tiles[0];
-        TileBase tileB = tileDatas[1].tiles[0];
-        TileBase[] tileArray = new TileBase[area.size.x * area.size.y * area.size.z];
-        for (int index = 0; index < tileArray.Length; index++)
-        {
-            tileArray[index] = index % 2 == 0 ? tileA : tileB;
-        }
+        SetDefaultTile(tileArray);
+        SetOtherTiles(tileArray);
         tilemap.SetTilesBlock(area, tileArray);
+    }
+
+    private void SetDefaultTile(TileBase[] tileArray){
+        for(int i = 0; i < area.size.x*area.size.y; i++){
+            tileArray[i]=tileDatas[0].tiles[0];
+        }
+    }
+
+    private void SetOtherTiles(TileBase[] tileArray){
+        for(int i = 0; i < tileDatas.Count; i++){
+            TileBase tile = tileDatas[i].tiles[0];
+            int index = 0;
+            for(int j = 0; j < area.size.x; j++){
+                for(int k = 0; k <area.size.y; k++){
+                    if(Mathf.PerlinNoise(j+seed, k+seed) > weight){
+                        tileArray[index] = tile;
+                    }
+                    index++;
+                }
+            }
+        }
     }
 
     private void Update()
