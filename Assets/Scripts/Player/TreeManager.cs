@@ -5,8 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class TreeManager : MonoBehaviour
 {
-//    public List<Node> nodes;
-    public List<int> nodes = new List<int> { 1, 2, 3 }; // temp until we get nodes as a game object
+    public List<NodeManager> nodes = new List<NodeManager>();
     public BoundsInt gameBounds;
     public Tilemap myTree;
 
@@ -19,16 +18,16 @@ public class TreeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Input.GetMouseButton(0))
-        {
-            TileBase[] tileArray = myTree.GetTilesBlock(gameBounds);
-            for (int index = 0; index < tileArray.Length; index++)
-            {
-                print(tileArray[index]);
-            }
+        var totalPower = 4; // TEMP TODO: detect how much nutrient power the roots cover
 
+        var powerPerUpdate = totalPower * Time.deltaTime;
+
+        var powerPerNode = powerPerUpdate / nodes.Count;
+
+        foreach(NodeManager node in nodes)
+        {
+            node.AddPower(powerPerNode);
         }
-        */
+
     }
 }

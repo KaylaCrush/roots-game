@@ -13,6 +13,8 @@ public class NodeManager : MonoBehaviour
     public Tilemap Environment;
     public Tilemap Buildings;
 
+    public TileBase StraightEW;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +27,18 @@ public class NodeManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddPower(float inputPower)
+    {
+        power = power + inputPower;
+        if (power > toughness)
+        {
+            power = power - toughness;
+
+            myTree.SetTile(Vector3Int.FloorToInt(this.transform.position), StraightEW);
+            this.transform.position = new Vector3(this.transform.position.x-1, this.transform.position.y, this.transform.position.z);
+            // TODO
+        }
     }
 }
