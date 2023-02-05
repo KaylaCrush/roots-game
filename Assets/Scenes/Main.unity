@@ -7389,10 +7389,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 424bdee695ada454982e3313119a670d, type: 2}
   - {fileID: 11400000, guid: 6aaec7e91515c20469eacbedbb6a938b, type: 2}
   - {fileID: 11400000, guid: 312a3273ee65b49469acbbc6fafd132e, type: 2}
+  DefaultTile: {fileID: 11400000, guid: 430a835841664cd4489a06216f5c36b6, type: 2}
+  BorderTile: {fileID: 11400000, guid: 46130bffc4c355d46ab814ff12c81614, type: 2}
   area:
     m_Position: {x: -25, y: -25, z: 0}
     m_Size: {x: 50, y: 50, z: 1}
-  zoom_factor: 0.025
+  zoom_factor: 0.25
 --- !u!4 &1888968536
 Transform:
   m_ObjectHideFlags: 0
