@@ -1598,7 +1598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &897235012
 Transform:
   m_ObjectHideFlags: 0
@@ -7392,6 +7392,7 @@ MonoBehaviour:
   area:
     m_Position: {x: -25, y: -25, z: 0}
     m_Size: {x: 50, y: 50, z: 1}
+  zoom_factor: 0.025
 --- !u!4 &1888968536
 Transform:
   m_ObjectHideFlags: 0

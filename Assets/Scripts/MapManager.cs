@@ -17,13 +17,19 @@ public class MapManager : MonoBehaviour
     [SerializeField]
     private List<TileData> tileDatas;
 
+    [SerializeField]
+    private TileData DefaultTile;
+    [SerializeField]
+    private TileData BorderTile;
+
     public BoundsInt area;
 
     private Dictionary<TileBase, TileData> dataFromTiles;
 
-    private float weight = .5f;
     private float seed = 420.69f;
-    private float zoom_factor = .24f;
+
+    [SerializeField]
+    private float zoom_factor = .25f;
 
     private void Awake()
     {
@@ -64,44 +70,41 @@ public class MapManager : MonoBehaviour
         TileBase[] mapArray = new TileBase[area.size.x * area.size.y];
 
         tilemap.ClearAllTiles();
-        SetDefaultTile(mapArray);
-        SetOtherTiles(mapArray);
+        mapArray = SetDefaultTile(mapArray);
+        mapArray = SetOtherTiles(mapArray);
+        mapArray = SetBorder(mapArray);
         tilemap.SetTilesBlock(area, mapArray);
     }
 
-    private void SetDefaultTile(TileBase[] mapArray){
+    private TileBase[] SetDefaultTile(TileBase[] mapArray){
         for(int i = 0; i < area.size.x*area.size.y; i++){
-            mapArray[i]=tileDatas[0].tiles[0];
+            mapArray[i]=DefaultTile.tiles[0];
         }
+        return mapArray;
     }
 
-    private void SetOtherTiles(TileBase[] mapArray){
-        int index=0;
+    private TileBase[] SetBorder(TileBase[] mapArray){
+        return mapArray;
+    }
+
+    private TileBase[] SetOtherTiles(TileBase[] mapArray){
+        int index;
         foreach(TileData tiledata in tileDatas){
+            index = 0;
             for(int j = 0; j < area.size.x; j++){
                 for(int k = 0; k < area.size.y; k++){
-                    Debug.Log(index);
-                    if(Mathf.PerlinNoise(j*zoom_factor+seed, k*zoom_factor+seed) > weight){mapArray[index] = tiledata.tiles[0];}
+                    if(Mathf.PerlinNoise(j*zoom_factor+seed, k*zoom_factor+seed) < tiledata.spawn_weight){mapArray[index] = tiledata.tiles[0];}
                     index++;
                 }
             }
         }
+        return mapArray;
     }
 
     private void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int gridPosition = tilemap.WorldToCell(mousePosition);
-
-
-        if (Input.GetMouseButton(0))
-        {
-            TileBase clickedTile = tilemap.GetTile(gridPosition);
-
-            float Toughness = dataFromTiles[clickedTile].Toughness;
-
-            print("At position " + gridPosition + " there is a " + clickedTile + " with toughness " + Toughness);
-        }
     }
 
     public float GetTileToughness(Vector2 worldPosition)

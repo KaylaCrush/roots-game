@@ -7,6 +7,6 @@ using UnityEngine.Tilemaps;
 public class TileData : ScriptableObject
 {
     public TileBase[] tiles;
-    public float NutrientGatherSpeed, Toughness,spawn_weight;
+    public float NutrientGatherSpeed, Toughness, spawn_weight;
 
 }

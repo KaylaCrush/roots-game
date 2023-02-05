@@ -16,3 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 67c668101f0e7f04880e4c6ab3bd094d, type: 2}
   NutrientGatherSpeed: 1
   Toughness: 1
+  spawn_weight: 1
