@@ -69,6 +69,7 @@ public class NodeManager : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(eulerRotations[nodeDirection]);
     }
+
     private Dictionary<Direction, Vector3> eulerRotations = new Dictionary<Direction, Vector3>
         {
             { Direction.East , new Vector3(0, 0, 0) },
@@ -99,7 +100,8 @@ public class NodeManager : MonoBehaviour
     public void AddPower(float inputPower)
     {
         var instruction = buildingManager.GetTileInstruction(transform.position);
-        if (instruction == BuildingTile.Instruction.Stop)
+        var alreadyTreeTile = myTree.HasTile(Vector3Int.FloorToInt(transform.position));
+        if (alreadyTreeTile || instruction == BuildingTile.Instruction.Stop)
         {
             return;
         }
