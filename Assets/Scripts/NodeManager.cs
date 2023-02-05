@@ -5,6 +5,22 @@ using UnityEngine.Tilemaps;
 
 public class NodeManager : MonoBehaviour
 {
+    public enum Direction
+    {
+        North,
+        South,
+        East,
+        West
+    }
+    public Dictionary<Direction, Vector3> directionVectors = new Dictionary<Direction, Vector3>
+    {
+        { Direction.North, new Vector3(0, 1, 0) },
+        { Direction.South, new Vector3(0, -1, 0) },
+        { Direction.East, new Vector3(1, 0, 0) },
+        { Direction.West, new Vector3(-1, 0, 0) }
+    };
+
+    public Direction direction;
     public float power;
     public float toughness;
 
@@ -35,7 +51,7 @@ public class NodeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void AddPower(float inputPower)
@@ -46,8 +62,10 @@ public class NodeManager : MonoBehaviour
             power = power - toughness;
 
             myTree.SetTile(Vector3Int.FloorToInt(this.transform.position), StraightEW);
-            this.transform.position = new Vector3(this.transform.position.x-1, this.transform.position.y, this.transform.position.z);
+            this.transform.position += directionVectors[Direction.West];
             // TODO
+
+            toughness = mapManager.GetTileToughness(transform.position);
         }
     }
 }
