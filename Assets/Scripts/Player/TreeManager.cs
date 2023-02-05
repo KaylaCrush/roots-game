@@ -39,7 +39,7 @@ public class TreeManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        var totalPower = TotalNutrients; // TEMP TODO: detect how much nutrient power the roots cover
+        float totalPower = (float)Math.Sqrt(TotalNutrients); // TEMP TODO: detect how much nutrient power the roots cover
 
         var powerPerUpdate = totalPower * Time.deltaTime;
 

@@ -11,6 +11,8 @@ public class MapManager : MonoBehaviour
     public Tilemap fogOfWar;
     public TileBase transparent;
     public TileBase fog;
+    public GameStateManager gameState;
+    public TileBase winTile;
 
     [SerializeField]
     private List<TileData> tileDatas;
@@ -135,6 +137,10 @@ public class MapManager : MonoBehaviour
             {
                 fogOfWar.SetTile(location + new Vector3Int(i, j, 1), null);
             }
+        }
+        if(tilemap.GetTile(location) == winTile)
+        {
+            gameState.WinGame(location);
         }
     }
 }

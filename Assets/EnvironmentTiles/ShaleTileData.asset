@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e56a75dec8d9cf418c58ebf0d1a7d1e, type: 3}
   m_Name: ShaleTileData
   m_EditorClassIdentifier: 
-  tiles: []
+  tiles:
+  - {fileID: 11400000, guid: af972c36d37ff2c459be38e323e40d72, type: 2}
   NutrientGatherSpeed: 0
   Toughness: 3

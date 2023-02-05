@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e56a75dec8d9cf418c58ebf0d1a7d1e, type: 3}
-  m_Name: ObsidianTileData
+  m_Name: CrystalTileData
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: 2207eb8683c15e946aeadda3c05e9857, type: 2}
-  NutrientGatherSpeed: 0
-  Toughness: 200
+  - {fileID: 11400000, guid: c741688ff5776dc449756e8ec4c0a518, type: 2}
+  NutrientGatherSpeed: 1
+  Toughness: 1
