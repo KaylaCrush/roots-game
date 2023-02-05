@@ -8,27 +8,19 @@ public class BuildingManager : MonoBehaviour
     [SerializeField]
     private Tilemap map;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    [SerializeField]
+    private List<BuildingTile> tileDatas;
 
-    }
+    private Dictionary<TileBase, BuildingTile> dataFromTiles;
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public float GetTileInstruction(Vector2 worldPosition)
+    public BuildingTile.Instruction GetTileInstruction(Vector2 worldPosition)
     {
         Vector3Int gridPosition = map.WorldToCell(worldPosition);
         TileBase tile = map.GetTile(gridPosition);
 
         if (tile == null)
-            return 1f;
+            return BuildingTile.Instruction.NONE;
 
-        float Toughness = dataFromTiles[tile].Toughness;
-        return Toughness;
+        return dataFromTiles[tile].instructionType;
     }
 }
