@@ -141,7 +141,7 @@ public class MapManager : MonoBehaviour
 
         if (tilemap.GetTile(location + new Vector3Int(0, 0, 1)) == winTile)
         {
-            gameState.WinGame(location);
+//            gameState.WinGame(location);
         }
     }
 }
