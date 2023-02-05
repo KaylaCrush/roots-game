@@ -103,3 +103,13 @@ MonoBehaviour:
   myTree: {fileID: 0}
   Environment: {fileID: 0}
   Buildings: {fileID: 0}
+  StraightEW: {fileID: 11400000, guid: 3ca06bff3d9f05245812349fc4c2d5fb, type: 2}
+  StraightNS: {fileID: 11400000, guid: 750a7fa578e22344d9566eb4ea9823b6, type: 2}
+  CornerNW: {fileID: 11400000, guid: b29350948750fb5439cbb8646924a28e, type: 2}
+  CornerNE: {fileID: 11400000, guid: 55a15a49353738048b75773a0d79d6cd, type: 2}
+  CornerSW: {fileID: 11400000, guid: c4e8d5ed142b03649b4f863822861dcd, type: 2}
+  CornerSE: {fileID: 11400000, guid: fe1afcf589d21284687eda3eebf1b22e, type: 2}
+  BranchNEW: {fileID: 11400000, guid: 8366472b6a16c414198b943f545ab7d8, type: 2}
+  BranchNES: {fileID: 11400000, guid: 32ed433e428b36e448405ba2bcb5be43, type: 2}
+  BranchNWS: {fileID: 11400000, guid: e3c808593e1642e4c8bae6859fbbd923, type: 2}
+  BranchSEW: {fileID: 11400000, guid: e9d75a74a18944b4982f15dcce40a883, type: 2}

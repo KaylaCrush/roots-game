@@ -14,6 +14,15 @@ public class NodeManager : MonoBehaviour
     public Tilemap Buildings;
 
     public TileBase StraightEW;
+    public TileBase StraightNS;
+    public TileBase CornerNW;
+    public TileBase CornerNE;
+    public TileBase CornerSW;
+    public TileBase CornerSE;
+    public TileBase BranchNEW;
+    public TileBase BranchNES;
+    public TileBase BranchNWS;
+    public TileBase BranchSEW;
 
     // Start is called before the first frame update
     void Start()
