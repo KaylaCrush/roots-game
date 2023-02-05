@@ -10,18 +10,24 @@ public class BuildingManager : MonoBehaviour
 
     [SerializeField]
     private List<BuildingTile> tileDatas;
+    [SerializeField]
 
+    private Dictionary<BuildingTile.Instruction, TileBase> tilePalette;
     private Dictionary<TileBase, BuildingTile> dataFromTiles;
+    public List<(TileBase from, TileBase to, Vector3 position)> historyStack;
 
     private void Awake()
     {
         dataFromTiles = new Dictionary<TileBase, BuildingTile>();
+        tilePalette = new Dictionary<BuildingTile.Instruction, TileBase>();
+        historyStack = new List<(TileBase from, TileBase to, Vector3 position)>();
 
         foreach (var tileData in tileDatas)
         {
             foreach (var tile in tileData.tiles)
             {
                 dataFromTiles.Add(tile, tileData);
+                tilePalette[tileData.instructionType] = tile;
             }
         }
     }
@@ -35,5 +41,13 @@ public class BuildingManager : MonoBehaviour
             return BuildingTile.Instruction.NONE;
 
         return dataFromTiles[tile].instructionType;
+    }
+
+    public void PlaceBuildingTile(Vector3 worldPosition, BuildingTile.Instruction type)
+    {
+        var worldPositionInt = Vector3Int.FloorToInt(worldPosition);
+        Debug.Log(tilePalette[type]);
+        historyStack.Add((map.GetTile(worldPositionInt), tilePalette[type], worldPosition));
+        map.SetTile(worldPositionInt, tilePalette[type]);
     }
 }

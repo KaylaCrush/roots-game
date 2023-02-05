@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: PlanSplit
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: 9deedb1e056e1274abcc48ef880ba1f2, type: 2}
   - {fileID: 11400000, guid: e8200235ed34caf4496f52d704cfdf0e, type: 2}
   instructionType: 0

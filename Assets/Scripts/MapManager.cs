@@ -39,7 +39,7 @@ public class MapManager : MonoBehaviour
         }
 
 
-    dataFromTiles = new Dictionary<TileBase, TileData>();
+        dataFromTiles = new Dictionary<TileBase, TileData>();
 
         foreach (var tileData in tileDatas)
         {
@@ -52,12 +52,14 @@ public class MapManager : MonoBehaviour
         GenerateMap();
     }
 
-    public void GenerateMap(){
+    public void GenerateMap()
+    {
         tilemap.ClearAllTiles();
         TileBase tileA = tileDatas[0].tiles[0];
         TileBase tileB = tileDatas[1].tiles[0];
         TileBase[] tileArray = new TileBase[area.size.x * area.size.y * area.size.z];
-        for (int index = 0; index < tileArray.Length; index++){
+        for (int index = 0; index < tileArray.Length; index++)
+        {
             tileArray[index] = index % 2 == 0 ? tileA : tileB;
         }
         tilemap.SetTilesBlock(area, tileArray);
@@ -105,12 +107,12 @@ public class MapManager : MonoBehaviour
 
     public void RevealTiles(Vector3Int location)
     {
-     for (int i = -2; i <3; i++)
+        for (int i = -2; i < 3; i++)
         {
             for (int j = -2; j < 3; j++)
             {
                 fogOfWar.SetTile(location + new Vector3Int(i, j, 1), null);
             }
         }
-     }
+    }
 }
