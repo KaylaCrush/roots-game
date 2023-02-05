@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e112526a1387c41adf56ac6c302f19, type: 3}
   m_Name: PlanTip
   m_EditorClassIdentifier: 
-  tiles: []
-  NutrientGatherSpeed: 0
-  Toughness: 0
+  tiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  instructionType: 2

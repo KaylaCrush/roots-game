@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e112526a1387c41adf56ac6c302f19, type: 3}
   m_Name: PlanSplit
   m_EditorClassIdentifier: 
-  tiles: []
-  NutrientGatherSpeed: 0
-  Toughness: 0
+  tiles:
+  - {fileID: 11400000, guid: 8366472b6a16c414198b943f545ab7d8, type: 2}
+  - {fileID: 11400000, guid: 32ed433e428b36e448405ba2bcb5be43, type: 2}
+  - {fileID: 11400000, guid: e3c808593e1642e4c8bae6859fbbd923, type: 2}
+  - {fileID: 11400000, guid: e9d75a74a18944b4982f15dcce40a883, type: 2}
+  instructionType: 0

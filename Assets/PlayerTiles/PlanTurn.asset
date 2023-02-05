@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: PlanTurn
   m_EditorClassIdentifier: 
   tiles: []
-  NutrientGatherSpeed: 0
-  Toughness: 0
+  instructionType: 1
