@@ -10,6 +10,8 @@ public class TreeManager : MonoBehaviour
     public BoundsInt gameBounds;
     public Tilemap myTree;
 
+    public float TotalNutrients = 4;
+
     public bool PauseState = true;
 
     // Start is called before the first frame update
@@ -37,7 +39,7 @@ public class TreeManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        var totalPower = 4; // TEMP TODO: detect how much nutrient power the roots cover
+        var totalPower = TotalNutrients; // TEMP TODO: detect how much nutrient power the roots cover
 
         var powerPerUpdate = totalPower * Time.deltaTime;
 
@@ -54,5 +56,10 @@ public class TreeManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void AddNutrients(float nutrients)
+    {
+        TotalNutrients = TotalNutrients + nutrients;
     }
 }

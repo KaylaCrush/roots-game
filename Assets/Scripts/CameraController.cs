@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        size = Cam.orthographicSize;
+        size = Camera.main.orthographicSize;
 
         _mousePos = Input.mousePosition;
 
@@ -140,8 +140,8 @@ public class CameraController : MonoBehaviour
     private void MoveMe(float x, float y, float z)
     {
         _moveVector = (new Vector3(x * horizontalScrollSpeed,
-        z * horizontalScrollSpeed, 0) * Time.deltaTime);
+        y * horizontalScrollSpeed, 0) * Time.deltaTime);
         transform.Translate(_moveVector, Space.World);
-        Camera.main.orthographicSize = Camera.main.orthographicSize + y * verticalScrollSpeed * Time.deltaTime;
+        Camera.main.orthographicSize = Camera.main.orthographicSize + z * verticalScrollSpeed * Time.deltaTime;
     }
 }

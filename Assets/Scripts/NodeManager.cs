@@ -112,6 +112,9 @@ public class NodeManager : MonoBehaviour
             // Power reduced by toughness cost
             power = power - toughness;
 
+            float nutrients = mapManager.GetTileNutrientGatherSpeed(new Vector2(this.transform.position.x, this.transform.position.y));
+            parentTree.AddNutrients(nutrients);
+
             switch (instruction)
             {
                 case BuildingTile.Instruction.Split:
