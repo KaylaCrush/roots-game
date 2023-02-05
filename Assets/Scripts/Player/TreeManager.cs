@@ -12,7 +12,7 @@ public class TreeManager : MonoBehaviour
 
     public float TotalNutrients = 4;
 
-    public bool PauseState = true;
+    public bool PauseState;
 
     // Start is called before the first frame update
     void Start()

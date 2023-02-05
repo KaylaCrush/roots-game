@@ -138,7 +138,8 @@ public class MapManager : MonoBehaviour
                 fogOfWar.SetTile(location + new Vector3Int(i, j, 1), null);
             }
         }
-        if(tilemap.GetTile(location) == winTile)
+
+        if (tilemap.GetTile(location + new Vector3Int(0, 0, 1)) == winTile)
         {
             gameState.WinGame(location);
         }

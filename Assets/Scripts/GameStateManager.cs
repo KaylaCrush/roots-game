@@ -11,6 +11,19 @@ public class GameStateManager : MonoBehaviour
 
     public void Update()
     {
+        // Pausing the game
+        if (Input.GetKeyDown("space"))
+        {
+            if (paused)
+            {
+                paused = false;
+            }
+            else
+            {
+                paused = true;
+            }
+        }
+
         if (!paused & gameStarted)
         {
             gameTime = gameTime + Time.deltaTime;
@@ -19,7 +32,9 @@ public class GameStateManager : MonoBehaviour
 
     public void WinGame(Vector3Int location)
     {
+        print("winStateDetected");
         paused = true;
+        GameObject.Find("PlayerTreeNodes").GetComponent<TreeManager>().PauseState = true;
         Camera.main.transform.position = location;
     }
 
