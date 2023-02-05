@@ -12,19 +12,4 @@ public class BuildingConstructor : MonoBehaviour
         Delete,
     }
 
-    void Update()
-    {
-        var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            var hit = Physics2D.Raycast(worldPoint, Vector2.down);
-
-            if (hit.collider != null)
-            {
-                Debug.Log("click on " + hit.collider.name);
-                Debug.Log(hit.point);
-            }
-        }
-    }
 }
