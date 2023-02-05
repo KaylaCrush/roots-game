@@ -273,6 +273,10 @@ PrefabInstance:
       propertyPath: myTree
       value: 
       objectReference: {fileID: 113013814}
+    - target: {fileID: 674271336169143907, guid: e6d74b5cbedc6424e90fd3576c8929d7, type: 3}
+      propertyPath: mapManager
+      value: 
+      objectReference: {fileID: 1888968535}
     - target: {fileID: 674271336169143910, guid: e6d74b5cbedc6424e90fd3576c8929d7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -944,7 +948,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.2938156
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1010,9 +1014,8 @@ MonoBehaviour:
   Cam: {fileID: 420135426}
   verticalScrollArea: 10
   horizontalScrollArea: 10
-  verticalScrollSpeed: 10
+  verticalScrollSpeed: 100
   horizontalScrollSpeed: 10
-  size: 0
   ZoomEnabled: 1
   MoveEnabled: 1
   CombinedMovement: 1
@@ -1281,6 +1284,150 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561516236}
   m_CullTransparentMesh: 1
+--- !u!1 &587352149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 587352150}
+  - component: {fileID: 587352152}
+  - component: {fileID: 587352151}
+  m_Layer: 0
+  m_Name: FogOfWar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &587352150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587352149}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1469066486}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!483693784 &587352151
+TilemapRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587352149}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_ChunkSize: {x: 32, y: 32, z: 32}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_MaxChunkCount: 16
+  m_MaxFrameAge: 16
+  m_SortOrder: 0
+  m_Mode: 0
+  m_DetectChunkCullingBounds: 0
+  m_MaskInteraction: 0
+--- !u!1839735485 &587352152
+Tilemap:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587352149}
+  m_Enabled: 1
+  m_Tiles: {}
+  m_AnimatedTiles: {}
+  m_TileAssetArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileMatrixArray:
+  - m_RefCount: 0
+    m_Data:
+      e00: 0
+      e01: 0
+      e02: 3.8750038
+      e03: 3.8750038
+      e10: 0
+      e11: 0
+      e12: 8.66e-43
+      e13: 8.66e-43
+      e20: -835596
+      e21: 1e-45
+      e22: -4.9019426e-19
+      e23: 8.601321e+9
+      e30: 4.5904e-41
+      e31: 0
+      e32: 8.66e-43
+      e33: 8.69e-43
+  m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+  m_TileObjectToInstantiateArray: []
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: -21, y: -6, z: 0}
+  m_Size: {x: 29, y: 11, z: 1}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
 --- !u!1 &750773865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1799,7 @@ MonoBehaviour:
     m_Position: {x: -100, y: -100, z: -1}
     m_Size: {x: 100, y: 100, z: 10}
   myTree: {fileID: 113013814}
+  TotalNutrients: 4
   PauseState: 0
 --- !u!1 &950703673
 GameObject:
@@ -1679,7 +1827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950703673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2323,6 +2471,7 @@ Transform:
   - {fileID: 1565591000}
   - {fileID: 113013812}
   - {fileID: 215524101}
+  - {fileID: 587352150}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7218,6 +7367,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 113013814}
     - target: {fileID: 674271336169143907, guid: e6d74b5cbedc6424e90fd3576c8929d7, type: 3}
+      propertyPath: mapManager
+      value: 
+      objectReference: {fileID: 1888968535}
+    - target: {fileID: 674271336169143907, guid: e6d74b5cbedc6424e90fd3576c8929d7, type: 3}
       propertyPath: nodeDirection
       value: 2
       objectReference: {fileID: 0}
@@ -7301,6 +7454,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 1565591002}
+  fogOfWar: {fileID: 587352152}
+  transparent: {fileID: 11400000, guid: c9da51f64233a804abe649a5174b6d13, type: 2}
   tileDatas:
   - {fileID: 11400000, guid: 430a835841664cd4489a06216f5c36b6, type: 2}
   - {fileID: 11400000, guid: 759c747731378914eb542319188b82a8, type: 2}

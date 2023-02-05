@@ -11,8 +11,6 @@ public class CameraController : MonoBehaviour
     public float verticalScrollSpeed = 10f;
     public float horizontalScrollSpeed = 10f;
 
-    public float size;
-
     public void EnableControls(bool _enable)
     {
 
@@ -42,8 +40,6 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        size = Camera.main.orthographicSize;
-
         _mousePos = Input.mousePosition;
 
         //Move camera if mouse is at the edge of the screen

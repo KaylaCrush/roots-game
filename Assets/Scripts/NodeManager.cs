@@ -145,6 +145,7 @@ public class NodeManager : MonoBehaviour
             transform.position += directionVectors[nodeDirection];
 
             toughness = mapManager.GetTileToughness(transform.position);
+            mapManager.RevealTiles(Vector3Int.FloorToInt(transform.position));
         }
     }
 }

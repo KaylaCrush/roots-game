@@ -7,6 +7,8 @@ public class MapManager : MonoBehaviour
 {
     [SerializeField]
     private Tilemap map;
+    public Tilemap fogOfWar;
+    public TileBase transparent;
 
     [SerializeField]
     private List<TileData> tileDatas;
@@ -65,5 +67,12 @@ public class MapManager : MonoBehaviour
 
         float NutrientGatherSpeed = dataFromTiles[tile].NutrientGatherSpeed;
         return NutrientGatherSpeed;
+    }
+
+    public void RevealTiles(Vector3Int location)
+    {
+        print(location);
+        fogOfWar.SetTile(location, transparent);
+    //    fogOfWar.BoxFill(location, transparent, location.x - 2, location.y - 2, location.x + 2, location.y + 2);
     }
 }
