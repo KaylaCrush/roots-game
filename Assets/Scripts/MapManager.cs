@@ -29,17 +29,17 @@ public class MapManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButton(0))
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int gridPosition = map.WorldToCell(mousePosition);
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3Int gridPosition = map.WorldToCell(mousePosition);
 
+
+        if (Input.GetMouseButton(0))
+        {
             TileBase clickedTile = map.GetTile(gridPosition);
 
             float Toughness = dataFromTiles[clickedTile].Toughness;
 
             print("At position " + gridPosition + " there is a " + clickedTile + " with toughness " + Toughness);
-
         }
     }
 

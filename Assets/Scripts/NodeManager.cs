@@ -116,8 +116,6 @@ public class NodeManager : MonoBehaviour
             {
                 case BuildingTile.Instruction.Split:
                     var newNodeDirection = ccwTurns[nodeDirection];
-                    Debug.Log("New Node Direction");
-                    Debug.Log(newNodeDirection);
                     var newNode = GameObject.Instantiate(nodePrefab, transform.position + directionVectors[newNodeDirection], Quaternion.Euler(eulerRotations[newNodeDirection])).GetComponent<NodeManager>();
                     newNode.nodeDirection = newNodeDirection;
                     newNode.myTree = myTree;
