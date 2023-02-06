@@ -10,6 +10,7 @@ public class CursorManager : MonoBehaviour
     public GameObject ui;
     public GameObject playerTree;
     public GameObject playerTreeGrid;
+    public AudioSource music;
     public BuildingManager buildingManager;
     public GameStateManager gameStateManager;
     public MapManager mapManager;
@@ -51,6 +52,7 @@ public class CursorManager : MonoBehaviour
             //       playerTreeGrid.transform.position = buildingManager.map.WorldToCell(mousePosition);// + new Vector3(7f,2f,-0.5f);
             mapManager.RevealTiles(new Vector3Int(-8, -2, -1));
             gameStateManager.gameStarted = true;
+            music.Play();
         }
 
         if (gameStateManager.gameStarted)

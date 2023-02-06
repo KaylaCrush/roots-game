@@ -23,17 +23,18 @@ public class MapManager : MonoBehaviour
     [SerializeField]
     private TileData BorderTile;
 
-    public BoundsInt area;
+    [SerializeField]
+    private int width=100, height=50;
+
+    private BoundsInt area;
 
     private Dictionary<TileBase, TileData> dataFromTiles;
 
     private float seed = 420.69f;
 
-    [SerializeField]
-    private float zoom_factor = .25f;
-
     private void Awake()
     {
+        area = new BoundsInt(-width/2, -height/2, 0, width, height, 1);
         // Cover map with fog of war
         TileBase[] tileArray = new TileBase[area.size.x * area.size.y];
 
@@ -103,6 +104,7 @@ public class MapManager : MonoBehaviour
 
     private TileBase[] SetOtherTiles(TileBase[] mapArray){
         int index;
+        float zoom_factor = .25f;
         for(int i = 0; i <tileDatas.Count; i++){
             index = 0;
             for(int j = 0; j < area.size.y; j++){
