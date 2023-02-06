@@ -764,7 +764,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -7535,10 +7535,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 312a3273ee65b49469acbbc6fafd132e, type: 2}
   DefaultTile: {fileID: 11400000, guid: 430a835841664cd4489a06216f5c36b6, type: 2}
   BorderTile: {fileID: 11400000, guid: 46130bffc4c355d46ab814ff12c81614, type: 2}
-  area:
-    m_Position: {x: -25, y: -25, z: 0}
-    m_Size: {x: 50, y: 50, z: 1}
-  zoom_factor: 0.25
+  width: 100
+  height: 50
 --- !u!4 &1888968536
 Transform:
   m_ObjectHideFlags: 0
@@ -7588,6 +7586,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2efd9400e02b7194990ff9a0c8b3df5b, type: 2}
   - {fileID: 11400000, guid: 5962a4c07671a3841a089a731cc63470, type: 2}
   - {fileID: 11400000, guid: 0770a4e9cdd1b6540982ccc4818daa93, type: 2}
+  treeMap: {fileID: 0}
 --- !u!4 &1989085342
 Transform:
   m_ObjectHideFlags: 0
