@@ -62,6 +62,10 @@ public class CursorManager : MonoBehaviour
             {
                 buildingManager.PlaceBuildingTile(buildingGridPosition, BuildingTile.Instruction.Stop);
             }
+            if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
+            {
+                buildingManager.Undo();
+            }
         }
     }
 }

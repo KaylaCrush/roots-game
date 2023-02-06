@@ -90,11 +90,11 @@ public class NodeManager : MonoBehaviour
 
     void SetCurrentTreeTile(TileBase tileType)
     {
-        myTree.SetTile(Vector3Int.FloorToInt(transform.position), tileType);
+        myTree.SetTile(Vector3Int.FloorToInt(new Vector3(transform.position.x, transform.position.y, 1)), tileType);
     }
     void ClearCurrentBuildingTile()
     {
-        buildingManager.map.DeleteCells(Vector3Int.FloorToInt(transform.position), Vector3Int.one);
+        buildingManager.map.SetTile(Vector3Int.FloorToInt(transform.position), null);
     }
 
     public void AddPower(float inputPower)
