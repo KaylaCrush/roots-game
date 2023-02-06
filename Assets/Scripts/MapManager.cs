@@ -19,6 +19,7 @@ public class MapManager : MonoBehaviour
 
     [SerializeField]
     private TileData DefaultTile;
+
     [SerializeField]
     private TileData BorderTile;
 
@@ -70,9 +71,10 @@ public class MapManager : MonoBehaviour
         TileBase[] mapArray = new TileBase[area.size.x * area.size.y];
 
         tilemap.ClearAllTiles();
-        mapArray = SetDefaultTile(mapArray);
+        //mapArray = SetDefaultTile(mapArray);
         mapArray = SetOtherTiles(mapArray);
         mapArray = SetBorder(mapArray);
+        mapArray = PlaceGoal(mapArray);
         tilemap.SetTilesBlock(area, mapArray);
     }
 
@@ -83,17 +85,39 @@ public class MapManager : MonoBehaviour
         return mapArray;
     }
 
+    private TileBase[] PlaceGoal(TileBase[] mapArray){
+        int x_dim = Random.Range(0, (int)(area.size.x/4));
+        int y_dim = Random.Range(0, (int)(area.size.y/4));
+
+        if(Random.value >= 0.5){x_dim = area.size.x - x_dim;}
+        if(Random.value >= 0.5){y_dim = area.size.y - y_dim;}
+
+        mapArray[y_dim+(area.size.y*x_dim)] = winTile;
+        return mapArray;
+    }
+
     private TileBase[] SetBorder(TileBase[] mapArray){
+        int index = 0;
+        for(int i=0; i < area.size.y; i++){
+            for(int j=0; j<area.size.x;j++){
+                if(((i == 0 || j==0) || i ==area.size.y-1) || j==area.size.x-1){
+                    mapArray[index] = BorderTile.tiles[0];
+                }
+                index++;
+            }
+        }
         return mapArray;
     }
 
     private TileBase[] SetOtherTiles(TileBase[] mapArray){
         int index;
-        foreach(TileData tiledata in tileDatas){
+        for(int i = 0; i <tileDatas.Count; i++){
             index = 0;
-            for(int j = 0; j < area.size.x; j++){
-                for(int k = 0; k < area.size.y; k++){
-                    if(Mathf.PerlinNoise(j*zoom_factor+seed, k*zoom_factor+seed) < tiledata.spawn_weight){mapArray[index] = tiledata.tiles[0];}
+            for(int j = 0; j < area.size.y; j++){
+                for(int k = 0; k < area.size.x; k++){
+                    if(Mathf.PerlinNoise((j+seed+i)*zoom_factor, (k+seed+i)*zoom_factor) < tileDatas[i].spawn_weight){
+                        mapArray[index] = tileDatas[i].tiles[0];
+                    }
                     index++;
                 }
             }
