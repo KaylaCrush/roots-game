@@ -47,9 +47,9 @@ public class CursorManager : MonoBehaviour
             playerTree.SetActive(true);
             playerTreeGrid.SetActive(true);
 
-     //       playerTree.transform.position = buildingManager.map.WorldToCell(mousePosition);// + new Vector3(8f, 1f, -0.5f);
-     //       playerTreeGrid.transform.position = buildingManager.map.WorldToCell(mousePosition);// + new Vector3(7f,2f,-0.5f);
-
+            //       playerTree.transform.position = buildingManager.map.WorldToCell(mousePosition);// + new Vector3(8f, 1f, -0.5f);
+            //       playerTreeGrid.transform.position = buildingManager.map.WorldToCell(mousePosition);// + new Vector3(7f,2f,-0.5f);
+            mapManager.RevealTiles(new Vector3Int(-8, -2, -1));
             gameStateManager.gameStarted = true;
         }
 

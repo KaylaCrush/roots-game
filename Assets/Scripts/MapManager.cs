@@ -43,14 +43,6 @@ public class MapManager : MonoBehaviour
         }
         fogOfWar.SetTilesBlock(area, tileArray);
 
-        for (int i = -5; i < 5; i++)
-        {
-            for (int j = -5; j < 5; j++)
-            {
-                fogOfWar.SetTile(new Vector3Int(i, j, 0), null);
-            }
-        }
-
         dataFromTiles = new Dictionary<TileBase, TileData>();
 
         foreach (var tileData in tileDatas)
@@ -167,7 +159,7 @@ public class MapManager : MonoBehaviour
 
         if (tilemap.GetTile(location + new Vector3Int(0, 0, 1)) == winTile)
         {
-//            gameState.WinGame(location);
+            gameState.WinGame(location);
         }
     }
 }
