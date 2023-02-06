@@ -1599,6 +1599,7 @@ MonoBehaviour:
   playerTreeGrid: {fileID: 113013811}
   buildingManager: {fileID: 1989085341}
   gameStateManager: {fileID: 0}
+  mapManager: {fileID: 1888968535}
 --- !u!1 &881396752
 GameObject:
   m_ObjectHideFlags: 0

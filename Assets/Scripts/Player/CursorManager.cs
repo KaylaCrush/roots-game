@@ -12,6 +12,7 @@ public class CursorManager : MonoBehaviour
     public GameObject playerTreeGrid;
     public BuildingManager buildingManager;
     public GameStateManager gameStateManager;
+    public MapManager mapManager;
 
     public static Vector3 snap(Vector3 pos)
     {
@@ -39,12 +40,16 @@ public class CursorManager : MonoBehaviour
 
         cursor.transform.position = snap(mousePosition) + new Vector3(0.5f, 0.5f, 0.5f);
 
-        if (Input.GetMouseButtonDown(0) && !gameStateManager.gameStarted)
+        if (Input.GetMouseButtonDown(0) & !gameStateManager.gameStarted)
         {
             prompt.SetActive(false);
             ui.SetActive(true);
             playerTree.SetActive(true);
             playerTreeGrid.SetActive(true);
+
+     //       playerTree.transform.position = buildingManager.map.WorldToCell(mousePosition);// + new Vector3(8f, 1f, -0.5f);
+     //       playerTreeGrid.transform.position = buildingManager.map.WorldToCell(mousePosition);// + new Vector3(7f,2f,-0.5f);
+
             gameStateManager.gameStarted = true;
         }
 
