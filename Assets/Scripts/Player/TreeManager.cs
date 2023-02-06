@@ -9,35 +9,34 @@ public class TreeManager : MonoBehaviour
     public List<NodeManager> nodes = new List<NodeManager>();
     public BoundsInt gameBounds;
     public Tilemap myTree;
+    public AudioSource growthAudio;
+    public AudioSource music;
 
     public float TotalNutrients = 4;
     public float totalPower;
 
     public bool PauseState;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         // Pausing the game
-        if(Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
         {
-            if(PauseState)
+            if (PauseState)
             {
                 PauseState = false;
-            } else
+                music.UnPause();
+            }
+            else
             {
                 PauseState = true;
+                music.Pause();
             }
+            growthAudio.Play();
         }
     }
 
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         totalPower = (float)Math.Sqrt(TotalNutrients); // TEMP TODO: detect how much nutrient power the roots cover
