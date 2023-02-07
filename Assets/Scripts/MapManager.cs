@@ -30,13 +30,16 @@ public class MapManager : MonoBehaviour
 
     private Dictionary<TileBase, TileData> dataFromTiles;
 
-    private float seed = 420.69f;
+    private float seed;
 
     private void Awake()
     {
         area = new BoundsInt(-width/2, -height/2, 0, width, height, 1);
         // Cover map with fog of war
         TileBase[] tileArray = new TileBase[area.size.x * area.size.y];
+        seed = Random.Range(1,10);
+
+
 
         for (int index = 0; index < tileArray.Length; index++)
         {
@@ -71,6 +74,7 @@ public class MapManager : MonoBehaviour
         tilemap.SetTilesBlock(area, mapArray);
     }
 
+    // No longer used, I just set the weight of dirt to 1
     private TileBase[] SetDefaultTile(TileBase[] mapArray){
         for(int i = 0; i < area.size.x*area.size.y; i++){
             mapArray[i]=DefaultTile.tiles[0];

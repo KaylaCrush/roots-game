@@ -331,7 +331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &113013812
 Transform:
   m_ObjectHideFlags: 0
@@ -1597,6 +1597,7 @@ MonoBehaviour:
   ui: {fileID: 34184289}
   playerTree: {fileID: 897235011}
   playerTreeGrid: {fileID: 113013811}
+  music: {fileID: 0}
   buildingManager: {fileID: 1989085341}
   gameStateManager: {fileID: 0}
   mapManager: {fileID: 1888968535}
@@ -1751,7 +1752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &897235012
 Transform:
   m_ObjectHideFlags: 0
@@ -1792,6 +1793,8 @@ MonoBehaviour:
     m_Position: {x: -100, y: -100, z: -1}
     m_Size: {x: 100, y: 100, z: 10}
   myTree: {fileID: 113013814}
+  growthAudio: {fileID: 0}
+  music: {fileID: 0}
   TotalNutrients: 4
   totalPower: 0
   PauseState: 0
@@ -7586,7 +7589,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2efd9400e02b7194990ff9a0c8b3df5b, type: 2}
   - {fileID: 11400000, guid: 5962a4c07671a3841a089a731cc63470, type: 2}
   - {fileID: 11400000, guid: 0770a4e9cdd1b6540982ccc4818daa93, type: 2}
-  treeMap: {fileID: 0}
+  treeMap: {fileID: 113013814}
 --- !u!4 &1989085342
 Transform:
   m_ObjectHideFlags: 0
